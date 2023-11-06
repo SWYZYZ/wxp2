@@ -18,6 +18,16 @@ router.get("/", async (ctx) => {
 // 更新计数
 router.post("/api/count", async (ctx) => {
   const { request } = ctx;
+  console.log(ctx)
+  ctx.body = {
+    code: 0,
+    data: "消息为："+ctx,
+  };
+});
+
+// 测试接收
+router.post("/api/count", async (ctx) => {
+  const { request } = ctx;
   const { action } = request.body;
   if (action === "inc") {
     await Counter.create();
