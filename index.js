@@ -26,7 +26,7 @@ router.post("/api/count", async (ctx) => {
 });
 
 // 测试接收
-router.post("/api/count", async (ctx) => {
+router.post("/api/msgt", async (ctx) => {
   const { request } = ctx;
   const { action } = request.body;
   if (action === "inc") {
