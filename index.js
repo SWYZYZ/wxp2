@@ -28,18 +28,11 @@ router.post("/api/count", async (ctx) => {
 // 测试接收
 router.post("/api/msgt", async (ctx) => {
   const { request } = ctx;
-  const { action } = request.body;
-  if (action === "inc") {
-    await Counter.create();
-  } else if (action === "clear") {
-    await Counter.destroy({
-      truncate: true,
-    });
-  }
+  console.log(ctx)
 
   ctx.body = {
     code: 0,
-    data: await Counter.count(),
+    data: "收到消息："+ctx,
   };
 });
 
