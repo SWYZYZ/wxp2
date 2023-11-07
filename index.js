@@ -39,7 +39,8 @@ router.post("/api/msgt", async (ctx) => {
         }
     }
     // dispatch to wx server
-    const result = await client.post(weixinAPI, payload)
+    const result = router.post(weixinAPI,payload)
+    console.log(result)
   // const { request } = ctx;
   // const weixinAPI = `http://api.weixin.qq.com/cgi-bin/message/custom/send`
   // const payload = {
