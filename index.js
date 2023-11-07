@@ -35,28 +35,18 @@ router.post("/api/msgt", async (ctx) => {
   const weixinAPI = `http://api.weixin.qq.com/cgi-bin/message/custom/send`
   console.log(headers['x-wx-openid'])
   console.log("111111111111111111111")
+  console.log(JSON.stringify(ctx.body, null, 2))
   const payload = {
     touser: headers['x-wx-openid'],
     msgtype: 'text',
     text: {
-      content: `云托管接收消息推送成功，内容如下：\n${JSON.stringify(ctx.body, null, 2)}`
+      content: "云托管接收消息推送成功，内容如下："
     }
   }
   // dispatch to wx server
   const result = await client.post(weixinAPI, payload)
   console.log(result)
-  // const { request } = ctx;
-  // const weixinAPI = `http://api.weixin.qq.com/cgi-bin/message/custom/send`
-  // const payload = {
-  //   touser: headers['x-wx-openid'],
-  //   msgtype: 'text',
-  //   text: {
-  //     content: `云托管接收消息推送成功，内容如下：\n${JSON.stringify(req.body, null, 2)}`
-  //   }
-  // }
-  // dispatch to wx server
-  // const result = await client.post(weixinAPI, payload)
-  // console.log('received request', req.body, result.data)
+
   ctx.body = {
     code: 0,
     data: "收到消息",
