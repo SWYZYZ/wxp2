@@ -47,7 +47,7 @@ router.post("/api/msgt", async (ctx) => {
   }
   // dispatch to wx server
   const result = await client.post(weixinAPI, payload)
-
+  console.log(result)
   ctx.body = {
     code: 0,
     data: "收到消息",
