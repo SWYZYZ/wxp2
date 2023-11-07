@@ -33,6 +33,8 @@ router.post("/api/msgt", async (ctx) => {
   // console.log(ctx.headers)
   const headers = ctx.headers
   const weixinAPI = `http://api.weixin.qq.com/cgi-bin/message/custom/send`
+  console.log("222222222222222222222222")
+  console.log(headers)
   console.log(headers['x-wx-openid'])
   console.log("111111111111111111111")
   console.log(JSON.stringify(ctx.body, null, 2))
