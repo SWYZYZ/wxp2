@@ -35,7 +35,7 @@ router.post("/api/msgt", async (ctx) => {
   console.log("________________________________________________")
   let a = await client.get("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx3fbbaa0b94922ed1&secret=45bd3b7671f2ce27d383f2b41cd7eae9")
   console.log(a)
-  let access_token = a.access_token
+  let access_token = a["access_token"]
   console.log(access_token)
   const weixinAPI = "http://api.weixin.qq.com/cgi-bin/message/custom/send?access_token="+access_token
   const payload = {
