@@ -32,6 +32,7 @@ router.post("/api/msgt", async (ctx) => {
   // console.log(ctx)
   // console.log(ctx.headers)
   const headers = ctx.headers
+  console.log(headers)
   console.log(headers['x-wx-openid'])
   let a = await client.get("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx3fbbaa0b94922ed1&secret=45bd3b7671f2ce27d383f2b41cd7eae9")
   let access_token = a.access_token
