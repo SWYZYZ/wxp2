@@ -5,6 +5,7 @@ const bodyParser = require("koa-bodyparser");
 const fs = require("fs");
 const path = require("path");
 const { init: initDB, Counter } = require("./db");
+const axios = require('axios')
 
 const router = new Router();
 
@@ -26,6 +27,7 @@ router.post("/api/count", async (ctx) => {
 });
 
 // 测试接收
+const client = axios.default
 router.post("/api/msgt", async (ctx) => {
   // console.log(ctx)
   // console.log(ctx.headers)
@@ -39,7 +41,7 @@ router.post("/api/msgt", async (ctx) => {
         }
     }
     // dispatch to wx server
-    const result = router.post(weixinAPI,"payload")
+    const result = await client.post(weixinAPI, payload)
     console.log(result)
   // const { request } = ctx;
   // const weixinAPI = `http://api.weixin.qq.com/cgi-bin/message/custom/send`
