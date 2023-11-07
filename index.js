@@ -33,16 +33,14 @@ router.post("/api/msgt", async (ctx) => {
   // console.log(ctx.headers)
   const headers = ctx.headers
   console.log("________________________________________________")
-  client.get("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx3fbbaa0b94922ed1&secret=45bd3b7671f2ce27d383f2b41cd7eae9").then(function(res){
-    // console.log(res)
-    console.log(res.data)
-  })
+  let a = await client.get("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx3fbbaa0b94922ed1&secret=45bd3b7671f2ce27d383f2b41cd7eae9")
+  let access_token = a.data.access_token
   console.log(headers['x-wx-openid'])
+  console.log(access_token)
   // console.log(a)
   // let access_token = a
   // console.log(access_token)
-  let a = ""
-  const weixinAPI = "http://api.weixin.qq.com/cgi-bin/message/custom/send?access_token="+a
+  const weixinAPI = "http://api.weixin.qq.com/cgi-bin/message/custom/send?access_token="+access_token
   const payload = {
     touser: headers['x-wx-openid'],
     msgtype: 'text',
