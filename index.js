@@ -28,6 +28,7 @@ router.post("/api/count", async (ctx) => {
 // 测试接收
 router.post("/api/msgt", async (ctx) => {
   console.log(ctx)
+  console.log(ctx.headers)
   const { request } = ctx;
   // const weixinAPI = `http://api.weixin.qq.com/cgi-bin/message/custom/send`
   // const payload = {
